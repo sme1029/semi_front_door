@@ -1,16 +1,7 @@
 package com.greedy.coffee.member.controller;
 
-import java.io.IOException;
-import java.util.Random;
-
-import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,9 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.greedy.coffee.member.dto.MemberDTO;
@@ -86,24 +74,8 @@ public class MemberController {
 	/* 회원 가입 */
 	@PostMapping("/regist")
 	public String registMember(@ModelAttribute MemberDTO member, RedirectAttributes rttr ) {
-		
+	
 		log.info(" ========== MemberController - registMember ==========");
-		
-//		long temp = Integer.parseInt(member.getMemPhone1().toString() + member.getMemPhone2().toString() + member.getMemPhone3().toString());
-		
-//		member.setMemPhone = Integer.parseInt(temp)	// 숫자로 DB에 저장하면 010의 앞 0이 사라짐
-		
-		log.info("Phone1 : " + member.getMemPhone1());
-		
-		log.info("Phone2 : " + member.getMemPhone2().toString());
-		
-		log.info("Phone3 : " + member.getMemPhone3().toString());
-		
-		String temp = member.getMemPhone1() + member.getMemPhone2().toString() + member.getMemPhone3().toString();
-		
-		log.info(temp);
-		
-		member.setMemPhone("0" + temp);
 		
 		member.setMemPwd(passwordEncoder.encode(member.getMemPwd()));
 		
@@ -127,6 +99,8 @@ public class MemberController {
 		
 	}
 	
+	
+	
 	/* 아이디 중복 체크 - Unsync */
 	@PostMapping("/idRedupCheck")
 	public ResponseEntity<String> checkReduplication(@RequestBody MemberDTO member) {
@@ -149,29 +123,12 @@ public class MemberController {
 		
 	}
 	
-	@PostMapping("/")
-	public String redirectMain() {
-		
-		return "redirect:/";
-	}
-	
-
-	
 	/* 아이디 찾기 페이지 */
 	@GetMapping("findId")
 	public String goFindId() {
 		
 		return "member/findId";
 		
-	}
-	
-	// 일반 회원 아이디 찾기
-	@PostMapping("findId")
-	@ResponseBody
-	public String findMemberId(@RequestParam("mname") String mname, @RequestParam("mphone") String mphone) {
-		// System.out.println(mname+ " : "+mphone);
-
-		return findMemberId(mname, mphone);
 	}
 	
 	/* 아이디 찾음 페이지 */	

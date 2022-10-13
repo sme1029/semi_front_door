@@ -13,7 +13,5 @@ public interface NoticeRepository extends JpaRepository<Notice, Long>{
 
 	Notice findByNotCodeAndNotStatus(Long notCode, String activeStatus);
 
-	Notice findByNotCode(Long notCode);
-
 	
 }

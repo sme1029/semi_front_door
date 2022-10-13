@@ -4,13 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
-
-
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,10 +40,7 @@ public class File {
 	private String fileStatus;
 	
 	@Column(name = "FILE_TYPE")
-	private String fileType;	
-	
-	@Column(name = "REV_CODE")
-	private Long revCode;
+	private String fileType;
 	
 	@Column(name = "FILE_THUM_NAME")
 	private String fileThumName;
@@ -52,6 +48,7 @@ public class File {
 	@Column(name = "FILE_THUM_PATH")
 	private String fileThumPath;
 	
-//	@Column(name = "PRO_CODE")
-//	private Product proCode;
+	@Column(name = "RE_PRO_CODE")
+	private Long proCode;
+
 }

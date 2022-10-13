@@ -5,8 +5,7 @@ window.onload = function() {
             location.href = "/review/create";
         }
     }
-
- 	
+    
     if(document.getElementById("deleteRev")) {
         const $update = document.getElementById("deleteRev");
         $update.onclick = function() {

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
 	<link rel="stylesheet" th:href="@{/css/login.css}">
-	
+	<script type="text/javascript" th:src="@{/js/member.js}"></script>
 </head>
 
 <body>
@@ -37,8 +37,6 @@
             <td class="infoTd2">
               <input
                 type="text"
-                minlength="8"
-                maxlength="15"
                 id="memId"
                 name="memId"
                 placeholder="아이디를 입력하세요"
@@ -57,7 +55,7 @@
               비밀번호 <span style="color: rgb(182, 0, 0)">*</span>
             </td>
             <td class="infoTd2">
-              <input type="password" name="memPwd" required="required" minlength="4" maxlength="10"/>
+              <input type="password" name="memPwd" required="required" />
             </td>
           </tr>
           <tr>
@@ -65,7 +63,7 @@
               비밀번호 확인 <span style="color: rgb(182, 0, 0)">*</span>
             </td>
             <td class="infoTd2">
-              <input type="password" name="memPwd2" required="required" minlength="4" maxlength="10"/>
+              <input type="password" name="memPwd2" required="required" />
             </td>
           </tr>
 
@@ -95,7 +93,6 @@
                 size="4"
                 maxlength="4"
                 required="required"
-                onkeydown="this.value=this.value.replace(/[^0-9]/g, '');"
               />
 
               -
@@ -105,7 +102,6 @@
                 size="4"
                 maxlength="4"
                 required="required"
-                onkeydown="this.value=this.value.replace(/[^0-9]/g, '');"
               />
             </td>
           </tr>
@@ -122,36 +118,24 @@
                 type="text"
                 name="memEmail"
                 size="30"
-                id="memEmail"
                 required="required"
                 placeholder="email@gmail.com"
               />
-              <input
-                type="button"
-                name="memEmailSend"
-                id="memEmailSend"
-                value="인증번호 전송"
-                style=" margin-top: 10px;"
-
-              /><br /><br />
             </td>
-            
           </tr>
           <tr>
-            <td class="infoTd1">
+            <td class="memEmail">
               이메일 인증 번호 <span style="color: rgb(182, 0, 0)">*</span>
             </td>
             <td class="infoTd2">
               <input
                 type="text"
-                name="memMailConfirm"
-                id="memMailConfirm"
+                name="certification"
                 placeholder="인증번호를 입력해 주세요."
               />
               <input
                 type="button"
-                name="memMailConfirmPwd"
-                id="memMailConfirmPwd"
+                name="certification"
                 value="확인"
                 style=" margin-top: 10px;"
 
@@ -170,7 +154,7 @@
           <input
             type="button"
             onclick="window.location.href='/'"
-            class="login_btn"
+            class="login_border_btn"
             value="취소"
       
           />
@@ -183,7 +167,6 @@
 
     <!-- 하단 -->
     
-    <script type="text/javascript" th:src="@{/js/member.js}"></script>
     <div th:replace="main/footer.html"></div>
     
   </body>
