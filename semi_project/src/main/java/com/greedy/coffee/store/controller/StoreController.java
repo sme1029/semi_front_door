@@ -1,15 +1,15 @@
 package com.greedy.coffee.store.controller;
 
 
+
 import org.springframework.context.support.MessageSourceAccessor;
+
 import org.springframework.data.domain.Page;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,6 +21,9 @@ import com.greedy.coffee.member.dto.MemberDTO;
 import com.greedy.coffee.store.dto.StoreDTO;
 import com.greedy.coffee.store.service.StoreService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 @RequestMapping("/store")
 public class StoreController {
@@ -43,6 +46,8 @@ public class StoreController {
 
 		Page<StoreDTO> storeList = storeService.selectStoreList(page, searchValue);
 		PagingButtonInfo paging = Pagenation.getPagingButtonInfo(storeList);
+		
+		log.info("storeList : {}", storeList.getContent());
 
 		model.addAttribute("storeList", storeList);
 		model.addAttribute("paging", paging);

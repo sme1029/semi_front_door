@@ -17,8 +17,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
 
+import com.greedy.coffee.best.entity.BeansList;
 import com.greedy.coffee.member.entity.Member;
-import com.greedy.coffee.product.entity.Product;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -64,7 +64,9 @@ public class Store {
   @JoinColumn(name = "MEM_ID")
   private Member memId;
   
-  
+  @OneToMany
+  @JoinColumn(name = "STO_CODE")
+  private List<BeansList> beansList;
   
   
 }

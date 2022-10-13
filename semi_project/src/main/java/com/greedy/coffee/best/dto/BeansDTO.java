@@ -1,7 +1,5 @@
 package com.greedy.coffee.best.dto;
 
-import com.greedy.coffee.product.dto.ProDTO;
-
 import lombok.Data;
 
 @Data
@@ -15,7 +13,7 @@ public class BeansDTO {
 	private String beanExplan;
 	private int beanType;
 	private String beanStatus;
-	private ProDTO proCode;
+	//private ProDTO proCode;
 	//private List<FileDTO> fileList;
 	
 }

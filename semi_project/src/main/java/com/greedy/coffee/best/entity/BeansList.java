@@ -24,15 +24,14 @@ import lombok.Setter;
 public class BeansList {
   
 	@Id
-	@Column(name = "PRE_PRICE") 
-	private Long prePrice;
+	@Column(name = "PRE_BEAN_PRICE") 
+	private Long preBeanPrice;
 	
-	@ManyToOne
-	@JoinColumn(name = "STO_CODE") 
-	private Store stoCode;
+	@Column(name = "STO_CODE") 
+	private Long stoCode;
 	  
 	@ManyToOne
 	@JoinColumn(name = "BEAN_CODE") 
-	private Beans beanCode;
+	private Beans beans;
   }
  
