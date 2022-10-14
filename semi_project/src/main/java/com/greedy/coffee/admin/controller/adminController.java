@@ -17,11 +17,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 @RequestMapping("/admin")
-public class EventBoardController {
+public class adminController {
 	
 	private final EventService eventService;
 	
-	public EventBoardController(EventService eventService) {
+	public adminController(EventService eventService) {
 		this.eventService = eventService;
 	}
 	
@@ -29,8 +29,7 @@ public class EventBoardController {
 	public String admin() {
 		
 		return "admin/adminPage";
-	}
-	
+	}	
 	
 	@GetMapping("list")
 	public String eventBoard(@RequestParam(defaultValue="1") int page, Model model) {
@@ -42,5 +41,11 @@ public class EventBoardController {
 		
 		return "admin/eventBoard";
 	} 
+	
+	@GetMapping("/orderStatus")
+	public String orderStausBoard() {
+		return "admin/orderStatus";
+	}
+	
 	
 }

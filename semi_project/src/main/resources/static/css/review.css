@@ -1,3 +1,4 @@
+리뷰 css 수정 본
 .review-tb .review-potn {
     display: flex;
     align-items: center;
@@ -6,14 +7,11 @@
     width: 1400px;
     margin-top: 10px;
 }
-
-
 .review-tb h1 {
     text-align: center;
     font-size: xxx-large;
     padding-top: 80px;
 }
-
 table {
     border-left: none;
     border-right: none;
@@ -23,59 +21,52 @@ table {
     width: 1400px;
     margin: 0 auto;
 }
-
 table tr {
     text-align: center;
+    border-top: 1.5px solid rgb(107, 71, 53);
+    border-bottom: 1.5px solid  rgb(107, 71, 53);
 }
 
-.review-tr {
 
+
+.review-tr {
     background-color: rgb(121, 89, 89);
     height: 30px;
 }
-
 .review-tr td {
     border: none;
     color: white;
 }
-
 .review-td1 {
     width: 100px;
 }
-
 .review-td2 {
     width: 1000px;
 }
-
 .review-td3 {
     width: 150px;
 }
-
 .review-td4 {
     width: 150px;
 }
-
 .review-tr1 td {
     border-left: none;
     border-right: none;
     border-top: none;
     text-align: center;
 }
-
 .review-tr2 td {
     border-left: none;
     border-right: none;
     border-top: none;
     text-align: center;
 }
-
 .review-tr3 td {
     border-left: none;
     border-right: none;
     border-top: none;
     text-align: center;
 }
-
 .box {
     width: 1400px;
     margin: 0 auto;
@@ -85,24 +76,20 @@ table tr {
     margin: 0 auto;
     box-shadow: 5px 5px 5px lightgrey;
 }
-
 .box a {
     margin-inline-start: 50px;
     color: rgb(107, 71, 53);
     font-size: xx-large;
 }
-
 .box a:hover {
     color: rgb(107, 71, 53);
     font-weight: bolder;
 }
-
 .box select {
     margin-inline-start: 50px;
     color: rgb(107, 71, 53);
     ;
 }
-
 .box span {
     width: 1400px;
     height: 50px;
@@ -111,29 +98,24 @@ table tr {
     margin: 0 auto;
     box-shadow: 5px 5px 5px lightgrey;
 }
-
 .rev-page hr {
     border: 1px solid rgb(107, 71, 53);
     align: center;
     width: 930px;
 }
-
 .rev-page h2 {
     color: rgb(107, 71, 53);
     padding-left: 20em;
 }
-
 .rev-page pre {
     color: rgb(107, 71, 53);
     padding-left: 30em;
 }
-
 .rev-page a {
     color: rgb(107, 71, 53);
     padding-left: 80em;
     font-weight: bold;
 }
-
 .button2 {
     align: center;
     border: none;
@@ -142,102 +124,83 @@ table tr {
     padding-left: 36em;
     font-weight: bold;
 }
-
 .button1 {
     float: right;
     margin-right: 20em;
     margin-top: 20px;
 }
-
 h1 {
     color: rgb(71, 42, 28);
 }
-
 .review-potn a {
     color: rgb(71, 42, 28);
 }
-
 .rev-page {
     margin-top: 5em;
 }
-
 .rev-page h1 {
     margin-bottom: 80px;
 }
-
-
-
+textarea {
+	border: none;
+	resize: none;
+}
+input{
+	border: none;
+}
 /* ----------------------------------------------------------------- */
 /* revCreate.html 부분 */
 .rev-create {
-    /* background-color: green; */
+    
     width: 1800px;
     margin: 0 auto;
 }
-
 .rev-wirte {
     width: 1700px;
     margin: 0 auto;
-    /* background-color: yellow; */
+    
 }
-
 .rev-wirte1 {
     width: 1600px;
     margin: 0 auto;
-    /* background-color: rgb(199, 199, 114); */
+    
 }
-
 .rev-table {
     width: 1200px;
     margin: 0 auto;
-    /* background-color: red; */
+    
 }
-
 .rev-thead {
-    width: 1500px;
+    width: 1200px;
     margin: 0 auto;
-    /* background-color: rgb(230, 126, 126); */
+    
     text-align: center;
 }
-
 .revTitle-box {
     width: 1200px;
     height: 30px;
 }
-
 .revContents-box {
     width: 1200px;
     height: 500px;
 }
-
 .rev-tbody {
-    width: 1500px;
-
-    /* background-color: rgb(224, 85, 177); */
-
+    width: 1200px;
 }
-
 .rev-tfoot {
-    width: 1500px;
+    width: 1200px;
+    display: flex;
     /* background-color: rgb(85, 99, 224); */
-
 }
-
 .image-area {
     width: 100px;
     height: 100px;
+    
 }
-
-
 /* ------------------------------------------------------------------ */
 /* 리뷰 업데이트 부분 */
 .rev-Update {
     width: 1800px;
-    margin: 0 auto;
-}
-
-.rev-button1{
-    width: 1200px;
     margin: 0 auto;
 }
 
@@ -247,24 +210,66 @@ h1 {
     width: 1600px;
     margin: 0 auto;
 }
-
 .rev-page h1{
     font-size: xxx-large;
 }
-
 .button4{
     width: 1400px;
 }
-
 .reply-text{
     resize:none;
     width: 1300px;
     height: 100px;
     float: left;
 }
-
 .revContents-box1{
     width: 1400px;
     height: 500px;
 }
+
+/* 리뷰 버튼 */
+.rev_btn1{
+  background-color: #4d3829;
+  border: 1px solid #4d3829;
+  padding: 4px 30px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.rev_btn2{
+  background-color: white;
+  border: 1px solid #4d3829;
+  padding: 4px 30px;
+  border-radius: 4px;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.rev-button1{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: right;
+  padding-right: 20px;
+}
+/*리스트*/
+.Photo-area{
+	padding: 86px 0;
+	margin-top: 10px;
+	
+}
+
+.rev-table-view .tr{
+	
+	margin-top: 10px;
+}
+
+
+/*이미지*/
+
+
 
