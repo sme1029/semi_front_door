@@ -58,7 +58,7 @@ public class Reply {
 	private Date replyDeleteDate;
 	
 	@ManyToOne
-	@JoinColumn(name = "WRITER")
+	@JoinColumn(name = "MEM_ID")
 	private Member writer;
 	
 	@Column(name = "REV_CODE")

@@ -16,6 +16,12 @@
     /* background-color: rgb(203, 203, 142); */
   }
 
+  #qna-potn{
+    width: 1400px;
+    margin: 0 auto;
+    /* background-color: pink; */
+    margin-top: 10px;
+  }
 
 
 h1 {
@@ -31,26 +37,23 @@ h1 {
     /* float: right; */
     border: 2px solid rgb(115, 114, 114);
     text-align: center;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-around; */
     margin-left: 1248px;
 }
 
 #qna-btn-box {
     width: 1400px;
     margin: 0 auto;
-    /* background-color: red; */
+    background-color: red;
     margin-top: 50px;
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: left;
   }
 
-  #qna-potn{
-    width: 1400px;
-    margin: 0 auto;
-    /* background-color: pink; */
-    margin-top: 10px;
-  }
 
   table{
     border-left: none;

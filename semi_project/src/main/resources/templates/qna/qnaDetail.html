@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/index.css}">	  
-    <link rel="stylesheet" th:href="@{/css/qna.css}">
+    <link rel="stylesheet" th:href="@{/css/qnaDetail.css}">
 
     <!-- 제이쿼리 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -33,23 +33,44 @@
 	<div th:replace="main/nav.html"></div>
 
     <!-- 개발진행 -->
-    <div class="qna-tb">
+
                      
-        <h1>문의 사항 확인</h1>
+        <h1 >문의 사항 확인</h1>
         
-		<div>
+        <form id="qnaRegistForm" th:action="@{/qna/qnaRegist}" method="post">
+        	
+        <div id="qna-btn-box"  >
+        
 			<!-- <label>제목</label> -->
-			<p th:text="${qna.qnaTitle }"/>		
+			<p align="left" th:text="${qna.qnaTitle }"/>		
 		</div>
-		<div>
+		<div id="qna-btn-box" >
 			<!-- <label>내용</label> -->
 			<p th:text="${qna.qnaContent }"/>		
 		</div>
         
-        <div class="qna-btn-box">
-            <div class="qna-btn1" onclick="window.location.href='./qnaList'">목록으로</div>
+<!--         <div id="qna-btn-box" style="background-color: green;">
+            <button type="button" style="background-color: red;" id="qna-btn1" onclick="window.location.href='./qnaList'">목록으로</button>
+            <button type="button" style="background-color: yellow;" id="qna-btn1" onclick="window.location.href='./qnaList'">수정</button>
+            <button type="button" style="background-color: blue;" id="qna-btn1" onclick="window.location.href='./qnaList'">삭제</button>
+        </div> -->
+
+		<!-- <div id="qna-btn-box" style="background-color: green;">
+            <button type="button" style="background-color: red;" onclick="window.location.href='./qnaList'">목록으로</button>
+            <button type="button" style="background-color: yellow;" onclick="window.location.href='./qnaModify'">수정</button>
+            <button type="submit" style="background-color: blue;" onclick="window.location.href='./qnaDelete'">삭제</button>
+        </div> -->
+                    
+        <div class="notice-btn-box-bottom">
+        	<button type="button" th:onclick="|location.href='/qna/qnaModify?qnaCode=${qna.qnaCode}'|">수정</button>
+        </div> 
+        
+        <div>
+        
         </div>
-    </div>
+			<button type="submit" class="qnaRemove">삭제</button>    
+		</form>
+
     <br><br><br><br>
 
 	<div th:replace="main/section.html"></div>

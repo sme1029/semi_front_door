@@ -53,7 +53,7 @@ public class Qna {
 	private String qnaStatus;
 	
 	@ManyToOne
-	@JoinColumn(name = "WRITER")
+	@JoinColumn(name = "MEM_ID")
 	private Member writer;
 	
 }

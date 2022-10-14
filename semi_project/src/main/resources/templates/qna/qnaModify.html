@@ -46,25 +46,14 @@
                        <label class="areaLabel">내용</label> <input class="areaInput2" type="text" th:value="${ qna.qnaContent }">
                         </div>
                     </div>
-                    <div class="qna-btn-box-bottom">
-                        <button type="submit" id="btnForChange" th:onclick="|location.href='/qna/detail?qnaCode=${qna.qnaCode}'|">수정</button>
-                        <button type="reset" onclick="location.href='/qna/qnaList'">삭제</button>
-					</div>
-                	<input type="hidden" name="qnaCode" th:value="${ qna.qnaCode }">
-                    <div class="title-box">
-                    <div class="textArea1">
-                       <label>제목</label> <input class="areaInput1" name="qnaTitle" type="text" th:value="${ qna.qnaTitle }">
-                      </div>
-                      <div class="textArea2">
-                       <label class="areaLabel">내용</label> <input class="areaInput2" name="qnaContent" type="text" th:value="${ qna.qnaContent }">
-                        </div>
+                    
+                    <div class="notice-btn-box-bottom" >
+                        <button type="submit" id="btnForChange">완료</button>
+                        <button type="button" th:onclick="|location.href='/qna/qnaDetail?qnaCode=${qna.qnaCode}'|">취소</button>
                     </div>
-                    <div class="qna-btn-box-bottom">
-                        <button type="submit" id="btnForChange">수정</button>
-                        <button type="button" name="qnaStatus" onclick="location.href='/qna/qnaList'">삭제</button>
-
-                    </div>
+             
                 </form>
+                
             </div>
         </div>
     

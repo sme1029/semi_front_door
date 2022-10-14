@@ -20,6 +20,8 @@ public interface  QnaRepository extends JpaRepository<Qna, Long>{
 	Page<Qna> findBySearchValue(@Param("qnaStatus") String activeStatus, @Param("searchValue") String searchValue, Pageable pageable);
 
 	Qna findByQnaCodeAndQnaStatus(Long qnaCode, String activeStatus);
+	
+	Qna findByQnaTitleAndQnaContent(String qnaTitle, String qnaContent);
 
 	Qna findByQnaCode(Long qnaCode);
 

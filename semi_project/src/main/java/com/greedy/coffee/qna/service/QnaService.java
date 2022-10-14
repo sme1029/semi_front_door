@@ -64,25 +64,38 @@ public class QnaService {
 	
 	public void registQna(QnaDTO qna) {
 		
+		qna.setQnaDate(new Date(System.currentTimeMillis()));
 		qnaRepository.save(modelMapper.map(qna, Qna.class));
 		
-		Qna foundQna = qnaRepository.findByQnaCode(qna.getQnaCode());
 		
-		foundQna.setQnaDate(new Date(System.currentTimeMillis()));
 		
 	}
 	
-	public void modifyQna(QnaDTO modifyQna) {
+	public QnaDTO modifyQna(Long qnaCode) {
 		
-		Qna foundQna = qnaRepository.findByQnaCode(modifyQna.getQnaCode());
+		Qna foundQna = qnaRepository.findByQnaCodeAndQnaStatus(qnaCode, ACTIVE_STATUS);
 		
-		foundQna.setQnaTitle(modifyQna.getQnaTitle());
+		foundQna.setQnaTitle(foundQna.getQnaTitle());
 		
-		foundQna.setQnaContent(modifyQna.getQnaContent());
+		foundQna.setQnaContent(foundQna.getQnaContent());
 		
 		foundQna.setQnaEditDate(new Date(System.currentTimeMillis()));
 		
+		return modelMapper.map(foundQna, QnaDTO.class);
+		
 	}
+	
+//	public void modifyQna(QnaDTO modifyQna) {
+//		
+//		Qna foundQna = qnaRepository.findByQnaCode(modifyQna.getQnaCode());
+//		
+//		foundQna.setQnaTitle(modifyQna.getQnaTitle());
+//		
+//		foundQna.setQnaContent(modifyQna.getQnaContent());
+//		
+//		foundQna.setQnaEditDate(new Date(System.currentTimeMillis()));
+//		
+//	}
 	
 	public void removeQna(QnaDTO removeQna) {
 		
@@ -126,6 +139,7 @@ public class QnaService {
 		foundReply.setReplyStatus("N");
 		
 	}
+
 	
 	
 }

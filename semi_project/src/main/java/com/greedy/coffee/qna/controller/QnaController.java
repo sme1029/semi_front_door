@@ -47,7 +47,7 @@ public class QnaController {
 		Page<QnaDTO> qnaList = qnaService.selectQnaList(page, searchValue);
 		PagingButtonInfo paging = Pagenation.getPagingButtonInfo(qnaList);
 		
-		log.info("qnaList qnaList : {}", qnaList);
+		log.info("qnaList qnaList : {}", qnaList.getContent());
 		log.info("qnaList paging : {}", paging);
 		
 		model.addAttribute("qnaList", qnaList);
@@ -62,6 +62,28 @@ public class QnaController {
 		log.info("qnaList is worked ");
 		
 		return "qna/qnaList";
+		
+	}
+
+	@GetMapping("/qnaRegist")
+	public String goQnaRegist() {
+		
+		return "qna/qnaRegist";
+		
+	}
+	
+	@PostMapping("/qnaRegist")
+	public String registQna(QnaDTO qna, @AuthenticationPrincipal MemberDTO member, RedirectAttributes rttr) {
+		
+		log.info("qnaRegist is working ");
+		
+		qna.setWriter(member);
+		log.info("qnaRegist qna : {} ", qna);
+		qnaService.registQna(qna);
+		
+		rttr.addFlashAttribute("message", messageSourceAccor.getMessage("qna.regist"));
+		
+		return "redirect:/qna/qnaList";
 		
 	}
 	
@@ -82,31 +104,20 @@ public class QnaController {
 		return "qna/qnaDetail";
 		
 	}
-
-	@GetMapping("/qnaRegist")
-	public String goQnaRegist() {
-		
-		return "qna/qnaRegist";
-		
-	}
-	
-	@PostMapping("/qnaRegist")
-	public String registQna(QnaDTO qna, @AuthenticationPrincipal MemberDTO member, RedirectAttributes rttr) {
-		
-		log.info("qnaRegist is working ");
-		log.info("qnaRegist qna : {} ", qna);
-		
-		qna.setWriter(member);
-		qnaService.registQna(qna);
-		
-		rttr.addFlashAttribute("message", messageSourceAccor.getMessage("qna.regist"));
-		
-		return "redirect:/qna/qnaList";
-		
-	}
 	
 	@GetMapping("/qnaModify")
-	public String goQnaModify() {
+	public String goQnaModify(Model model, Long qnaCode) {
+		
+		log.info("qnaModify is working ");
+		log.info("qnaModify qnaCode : {} ", qnaCode);
+		
+		QnaDTO qna = qnaService.modifyQna(qnaCode);
+		
+		log.info("qnaDetail qna : {} ", qna);
+		
+		model.addAttribute("qna", qna);
+		
+		log.info("qnaDetail is worked ");
 		
 		return "qna/qnaModify";
 		
@@ -122,7 +133,7 @@ public class QnaController {
 		qna.setWriter(member);
 		qnaService.registQna(qna);
 		
-		rttr.addAttribute("message", messageSourceAccor.getMessage("qna.regist"));
+		rttr.addAttribute("message", messageSourceAccor.getMessage("qna.modify"));
 		
 		log.info("qnaModify is worked ");
 		
