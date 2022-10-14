@@ -50,5 +50,8 @@ public class File {
 	
 	@Column(name = "RE_PRO_CODE")
 	private Long proCode;
+	
+	@Column(name = "REV_CODE")
+	private Long revCode;
 
 }

@@ -16,6 +16,7 @@ public class ProDTO {
 	private String proName;
 	private int proPrice;
 	private String proContent;
+	private int proCount;
 	private String proStatus;
 	private MemberDTO writer;
 	private List<FileDTO> fileList;

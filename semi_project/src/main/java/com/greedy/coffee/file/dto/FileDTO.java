@@ -9,6 +9,7 @@ public class FileDTO {
 	private String fileStatus;
 	private String fileType;
 	private Long proCode;
+	private Long revCode;	
 	private String fileThumName;
 	private String fileThumPath;
 	

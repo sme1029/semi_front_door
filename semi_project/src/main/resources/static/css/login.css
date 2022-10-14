@@ -28,10 +28,10 @@
 /* ==========로그인================== */
 .login_body {
   border: 1px solid rgb(214, 214, 214);
-  margin: 10%;
-  margin-bottom: 40%;
+  margin: 0 auto;
+  margin-top: 10%;
   padding: 100px;
-  width: 70%;
+  width: 1000px;
 }
 
 .login_td1 {
@@ -43,7 +43,6 @@
 
 .login_input {
   border-bottom: 1px solid rgb(222, 201, 195);
-  text-align: ;
   width: 280px;
   height: 50px;
   border-top: none;

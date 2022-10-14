@@ -54,4 +54,25 @@ public class NoticeService {
 		
 		return modelMapper.map(notice, NoticeDTO.class);
 	}
+	
+	public NoticeDTO seleNoticeDetail(Long notCode) {
+		
+		Notice notice = noticeRepository.findByNotCode(notCode);
+		
+		return modelMapper.map(notice, NoticeDTO.class);
+	}
+
+	public void modifyMember(NoticeDTO noticeModify) {
+		
+		Notice savedNotice = noticeRepository.findByNotCode(noticeModify.getNotCode());
+		savedNotice.setNotTitle(noticeModify.getNotTitle());
+		savedNotice.setNotContent(noticeModify.getNotContent());
+	}
+
+	public void removeNotice(NoticeDTO notice) {
+
+		Notice savedNotice = noticeRepository.findByNotCode(notice.getNotCode());
+		savedNotice.setNotStatus("N");
+	}
+	
 }

@@ -63,3 +63,33 @@ h1{
   align-items: center;
   justify-content: center;
 }
+
+.textArea1 {
+	width: 1400px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.textArea2 {
+	width: 1400px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.areaLabel{
+	margin-bottom: 33.5%;
+}
+
+.areaInput1{
+	width:1000px;
+}
+
+.areaInput2{
+	width:1000px;
+	height: 500px;
+	margin-top: 20px;
+}

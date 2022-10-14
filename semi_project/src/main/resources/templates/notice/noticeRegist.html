@@ -1,3 +1,5 @@
+<!-- 관리자로 로그인하여 '공지사항등록' 버튼을 눌렀을 시 나오는 화면 -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="https//www.thymeleaf.org/thymeleaf-extras-springsecurity5">
@@ -6,30 +8,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="/main/main.css">
-    <link rel="stylesheet" href="/main/quickmenu.css">
-    <link rel="stylesheet" href="/board/notice/updateNotice.css"> -->
-     <link rel="stylesheet" th:href="@{/css/index.css}">	  
-     <link rel="stylesheet" th:href="@{/css/noticeRegist.css}">
-
+    <link rel="stylesheet" th:href="@{/css/index.css}">	  
+    <link rel="stylesheet" th:href="@{/css/noticeRegist.css}">
 
     <!-- 제이쿼리 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
+        
     <script>
         // 권한부여, AJAX 통신 후 코드 수정해야함
+        const message = '[[${message}]]';
+		message && alert(message);
     </script>
     
-
     <title>Hice Coffee</title>
 </head>
 
 <body>
 
-
-    
     <div th:replace="main/header.html"></div>
 	<div th:replace="main/article.html"></div>
 	<div th:replace="main/nav.html"></div>
@@ -47,24 +45,26 @@
                             placeholder="내용을 입력해주세요.">
                         </textarea>
                     </div>
+                    
                     <div class="notice-btn-box-bottom">
                         <button type="submit" id="btnForChange">등록</button>
-                        <button type="submit">취소</button>
+<<<<<<< HEAD
+                    	<button type="reset" onclick="location.href='notice/noticeList'">취소</button>
+=======
+                    	<button type="button" onclick="location.href='/notice/noticeList'">취소</button>
+>>>>>>> refs/remotes/origin/Zoo
                     </div>
+                    
+                    
+           </div>
                 </form>
             </div>
         </div>
 
-
- 
  <div th:replace="main/section.html"></div>
     <div th:replace="main/footer.html"></div>
 </body>
 <footer>
-    <script>
-        // 등록, 수정 버튼 바꾸는 코드, 한번 짜보기
-        $("#btnForChange")
-    </script>
     
 </footer>
 

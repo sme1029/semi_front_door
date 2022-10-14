@@ -20,15 +20,15 @@
     
     <div>
     
-    <form action="writepage.html" method="get" id="form1">
+    <form action="writepage.html" method="get" id="terms">
         <div class="agreement_top">
         <h2 >이용약관 및 개인정보수집 및 이용 동의서</h2>
     </div>
-        <div id="accordion">
+        <div id="accordion" align="left">
             
             <div>
                 <h3><input type="checkbox" name="c1" id="c1"/></a> 이용약관 동의 (필수)</h3>
-                    <textarea readonly="readonly" rows="5" cols="66"  class="signup_box">
+                    <textarea readonly="readonly" rows="10" cols="180"  class="signup_box">
 제 1 조 (목적)
         
 이 약관은 네이버 주식회사 ("회사" 또는 "네이버")가 제공하는 네이버 및 네이버 관련 제반 서비스의 이용과 관련하여 회사와 회원과의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
@@ -50,7 +50,7 @@
             <div>
                        
                     <h3><input type="checkbox" name="c2" id="c2"/></a> 개인정보 수집 및 이용에 대한 안내 (필수)</h3>
-                    <textarea readonly="readonly" rows="5" cols="66"  class="signup_box">
+                    <textarea readonly="readonly" rows="10" cols="180"  class="signup_box">
         
 정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
 
@@ -65,16 +65,12 @@
         </div>
 
             <div align="center" style="padding-bottom: 150px;" >
-                    <button type="button" th:onclick="'location.href=\'/member/regist\''" class="login_btn">동의</button>
-                    <button type="button" onclick="window.location.href='/'" class="login_border_btn">비동의</button>
+                    <button type="submit" th:onclick="'location.href=\'/member/regist\''" class="login_btn">동의</button>
+                    <button type="button" onclick="window.location.href='/'" class="login_btn">비동의</button>
             </div>
     </form>
 
-    <br><hr><br>
-    
-    </div>
-    
-    </section>
+    <br><br>
 
     <!-- 하단 -->
 

@@ -181,6 +181,7 @@ public class ProController {
 		return "redirect:/product/proList";
 	}
 	
+	//수정하러가기
 	@GetMapping("/modify/{proCode}")
 	public String editProduct(@PathVariable Long proCode, Model model) {
 		

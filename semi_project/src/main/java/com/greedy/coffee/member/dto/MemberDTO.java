@@ -11,7 +11,7 @@ public class MemberDTO implements UserDetails {
 	private String memId;
 	private String memName;
 	private String memPwd;
-	private Long memPhone;
+	private String memPhone;
 	private String memEmail;
 	
 	private Long memDate;
@@ -19,10 +19,22 @@ public class MemberDTO implements UserDetails {
 	private String memStatus;
 	private String memRole;	// 추가
 	
+	private String memPhone1;
+	private Long memPhone2;
+	private Long memPhone3;
+	
 	public MemberDTO() {
 		
 	}
-	public MemberDTO(String memId, String memName, String memPwd, Long memPhone, String memEmail, Long memDate,
+	
+	public MemberDTO(String memPhone, String memPhone1, Long memPhone2, Long memPhone3) {
+		this.memPhone = memPhone;
+		this.memPhone1 = memPhone1;
+		this.memPhone2 = memPhone2;
+		this.memPhone3 = memPhone3;
+	}
+	
+	public MemberDTO(String memId, String memName, String memPwd, String memPhone, String memEmail, Long memDate,
 			String memStatus, String memRole) {
 		super();
 		this.memId = memId;
@@ -52,10 +64,10 @@ public class MemberDTO implements UserDetails {
 	public void setMemPwd(String memPwd) {
 		this.memPwd = memPwd;
 	}
-	public Long getMemPhone() {
+	public String getMemPhone() {
 		return memPhone;
 	}
-	public void setMemPhone(Long memPhone) {
+	public void setMemPhone(String memPhone) {
 		this.memPhone = memPhone;
 	}
 	public String getMemEmail() {
@@ -81,6 +93,27 @@ public class MemberDTO implements UserDetails {
 	}
 	public void setMemRole(String memRole) {
 		this.memRole = memRole;
+	}
+
+	public String getMemPhone1() {
+		return memPhone1;
+	}
+	public void setMemPhone1(String memPhone1) {
+		this.memPhone1 = memPhone1;
+	}
+	
+	public Long getMemPhone2() {
+		return memPhone2;
+	}
+	public void setMemPhone2(Long memPhone2) {
+		this.memPhone2 = memPhone2;
+	}
+	
+	public Long getMemPhone3() {
+		return memPhone3;
+	}
+	public void setMemPhone3(Long memPhone3) {
+		this.memPhone3 = memPhone3;
 	}
 	
 	@Override

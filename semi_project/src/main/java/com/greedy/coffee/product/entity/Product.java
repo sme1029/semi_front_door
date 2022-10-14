@@ -49,6 +49,9 @@ public class Product {
 	@Column(name="PRO_CONTENTS")
 	private String proContent; //상품 설명
 	
+	@Column(name="PRO_COUNT")
+	private int proCount;		//조회수
+	
 	@Column(name="PRO_STATUS")
 	private String proStatus;		//상품 상태(판매중/품절)
 	
