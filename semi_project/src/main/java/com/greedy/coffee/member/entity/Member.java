@@ -27,7 +27,7 @@ public class Member {
 	private String memPwd;
 	
 	@Column(name = "MEM_PHONE")
-	private long memPhone;
+	private Long memPhone;
 	
 	@Column(name = "MEM_EMAIL")
 	private String memEmail;

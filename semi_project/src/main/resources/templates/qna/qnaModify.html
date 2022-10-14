@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/index.css}">	  
-    <link rel="stylesheet" th:href="@{/css/noticeRegist.css}">
+    <link rel="stylesheet" th:href="@{/css/qnaRegist.css}">
 
     <!-- 제이쿼리 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -33,40 +33,40 @@
 	<div th:replace="main/nav.html"></div>
 
     <!-- 개발진행 -->
-    <div id="notice-main">
-            <div id="notice-section">
-                <h1 align="center">공지 사항 수정 / 삭제</h1>
-                <form id="noticeRegistForm" th:action="@{/notice/noticeModify}" method="post">
-                    <input type="hidden" name="notCode" th:value="${ notice.notCode }">
+    <div id="qna-main">
+            <div id="qna-section">
+                <h1 align="center">문의 사항 수정 / 삭제</h1>
+                <form id="qnaRegistForm" th:action="@{/qna/qnaModify}" method="post">
+
                     <div class="title-box">
                     <div class="textArea1">
-                       <label>제목</label> <input class="areaInput1" name="notTitle" type="text" th:value="${ notice.notTitle }">
+                       <label>제목</label> <input class="areaInput1" type="text" th:value="${ qna.qnaTitle }">
                       </div>
                       <div class="textArea2">
-                       <label class="areaLabel">내용</label> <input class="areaInput2" name="notContent" type="text" th:value="${ notice.notContent }">
+                       <label class="areaLabel">내용</label> <input class="areaInput2" type="text" th:value="${ qna.qnaContent }">
                         </div>
                     </div>
-                    <div class="notice-btn-box-bottom">
+                    <div class="qna-btn-box-bottom">
+                        <button type="submit" id="btnForChange" th:onclick="|location.href='/qna/detail?qnaCode=${qna.qnaCode}'|">수정</button>
+                        <button type="reset" onclick="location.href='/qna/qnaList'">삭제</button>
+					</div>
+                	<input type="hidden" name="qnaCode" th:value="${ qna.qnaCode }">
+                    <div class="title-box">
+                    <div class="textArea1">
+                       <label>제목</label> <input class="areaInput1" name="qnaTitle" type="text" th:value="${ qna.qnaTitle }">
+                      </div>
+                      <div class="textArea2">
+                       <label class="areaLabel">내용</label> <input class="areaInput2" name="qnaContent" type="text" th:value="${ qna.qnaContent }">
+                        </div>
+                    </div>
+                    <div class="qna-btn-box-bottom">
                         <button type="submit" id="btnForChange">수정</button>
+                        <button type="button" name="qnaStatus" onclick="location.href='/qna/qnaList'">삭제</button>
+
                     </div>
                 </form>
-                
-             				<form th:action="@{/notice/noticeDelete}" method="post">
-				           	 <input type="hidden" name="notCode" th:value="${notice.notCode}"/>
-				           	 <button type="submit" class="notDelete">삭제</button>
-			           	 </form>
             </div>
         </div>
-        
-    <script>
-    	
-    	// 1. 삭제 버튼에 클릭 이벤트를 건다
-    	// 2. 클릭 이벤트 내부 코드
-    	// 2-1. form element 선택
-    	// 2-2. form element action 속성 수정 (/notice/noticeDelete)
-    	// 2-3. form 태그 제출 - form.submit();
-    	
-    </script>
     
 	<div th:replace="main/section.html"></div>
     <div th:replace="main/footer.html"></div>

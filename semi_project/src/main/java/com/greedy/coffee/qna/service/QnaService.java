@@ -1,5 +1,6 @@
 package com.greedy.coffee.qna.service;
   
+import java.sql.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,14 +9,18 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.greedy.coffee.qna.dto.QnaDTO;
 import com.greedy.coffee.qna.entity.Qna;
+import com.greedy.coffee.qna.repository.QnaReplyRepository;
 import com.greedy.coffee.qna.repository.QnaRepository;
 import com.greedy.coffee.reply.dto.ReplyDTO;
 import com.greedy.coffee.reply.entity.Reply;
-import com.greedy.coffee.reply.repository.ReplyRepository;
-  
+ 
+@Service
+@Transactional
 public class QnaService {
   
 	public static final int TEXT_PAGE_SIZE = 10;
@@ -23,13 +28,13 @@ public class QnaService {
 	public static final String ACTIVE_STATUS = "Y";
   
 	private final QnaRepository qnaRepository;
-	private final ReplyRepository replyRepository;
+	private final QnaReplyRepository qnaReplyRepository;
 	public final ModelMapper modelMapper;
   
-	public QnaService(QnaRepository qnaRepository, ReplyRepository replyRepository, ModelMapper modelMapper) {
+	public QnaService(QnaRepository qnaRepository, QnaReplyRepository qnaReplyRepository, ModelMapper modelMapper) {
   
 		this.qnaRepository = qnaRepository;
-		this.replyRepository = replyRepository;
+		this.qnaReplyRepository = qnaReplyRepository;
 		this.modelMapper = modelMapper;
   
 	}
@@ -61,6 +66,22 @@ public class QnaService {
 		
 		qnaRepository.save(modelMapper.map(qna, Qna.class));
 		
+		Qna foundQna = qnaRepository.findByQnaCode(qna.getQnaCode());
+		
+		foundQna.setQnaDate(new Date(System.currentTimeMillis()));
+		
+	}
+	
+	public void modifyQna(QnaDTO modifyQna) {
+		
+		Qna foundQna = qnaRepository.findByQnaCode(modifyQna.getQnaCode());
+		
+		foundQna.setQnaTitle(modifyQna.getQnaTitle());
+		
+		foundQna.setQnaContent(modifyQna.getQnaContent());
+		
+		foundQna.setQnaEditDate(new Date(System.currentTimeMillis()));
+		
 	}
 	
 	public void removeQna(QnaDTO removeQna) {
@@ -69,31 +90,42 @@ public class QnaService {
 		
 		foundQna.setQnaStatus("N");
 		
-	}
-	
-	public void registReply(ReplyDTO registReply) {
-		
-		replyRepository.save(modelMapper.map(registReply, Reply.class));
+		foundQna.setQnaDeleteDate(new Date(System.currentTimeMillis()));
 		
 	}
 	
-	public List<ReplyDTO> loadReply(ReplyDTO loadReply) {
+	public void registQnaReply(ReplyDTO registReply) {
 		
-		List<Reply> replyList = replyRepository.findByQnaCodeandReplyStatus(loadReply.getQnaCode(), ACTIVE_STATUS);
+		qnaReplyRepository.save(modelMapper.map(registReply, Reply.class));
+		
+		Reply foundReply = qnaReplyRepository.findByReplyNo(registReply.getReplyNo());
+		foundReply.setReplyDate(new Date(System.currentTimeMillis()));
+		
+	}
+	
+	public List<ReplyDTO> loadQnaReply(ReplyDTO loadReply) {
+		
+		List<Reply> replyList = qnaReplyRepository.findByReplyNoAndReplyStatus(loadReply.getReplyNo(), ACTIVE_STATUS);
 		
 		return replyList.stream().map(reply -> modelMapper.map(reply, ReplyDTO.class)).collect(Collectors.toList());
 		
 	}
 	
-	public void removeReply(ReplyDTO removeReply) {
+	public void removeQnaReply(ReplyDTO removeReply) {
 		
-		Reply foundReply = replyRepository.findByReplyNo(removeReply.getReplyNo());
-		
+		Reply foundReply = qnaReplyRepository.findByReplyNo(removeReply.getReplyNo());
+		foundReply.setReplyDeleteDate(new Date(System.currentTimeMillis()));
 		foundReply.setReplyStatus("N");
 		
 	}
 	
-	
+	public void modifyQnaReply(ReplyDTO modifyReply) {
+		
+		Reply foundReply = qnaReplyRepository.findByReplyNo(modifyReply.getReplyNo());
+		foundReply.setReplyEditDate(new Date(System.currentTimeMillis()));
+		foundReply.setReplyStatus("N");
+		
+	}
 	
 	
 }

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
 
-import com.greedy.coffee.member.dto.MemberDTO;
+import com.greedy.coffee.member.entity.Member;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +25,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "TBL_QNA")
-@SequenceGenerator(name = "QNA_SEQ_GENERATOR", sequenceName = "SEQ_QNA_NO", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name = "QNA_SEQ_GENERATOR", sequenceName = "SEQ_QNA_CODE", initialValue = 1, allocationSize = 1)
 @DynamicInsert
 public class Qna {
 
@@ -38,7 +38,7 @@ public class Qna {
 	private String qnaTitle;
 	
 	@Column(name = "QNA_CONTENT")
-	private String qnaContents;
+	private String qnaContent;
 	
 	@Column(name = "QNA_DATE")
 	private Date qnaDate;
@@ -53,7 +53,7 @@ public class Qna {
 	private String qnaStatus;
 	
 	@ManyToOne
-	@JoinColumn(name = "QNA_WRITER")
-	private MemberDTO writer;
+	@JoinColumn(name = "WRITER")
+	private Member writer;
 	
 }

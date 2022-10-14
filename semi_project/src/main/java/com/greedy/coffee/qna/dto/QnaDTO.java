@@ -12,7 +12,7 @@ public class QnaDTO {
 
 	private Long qnaCode;
 	private String qnaTitle;
-	private String qnaContents;
+	private String qnaContent;
 	private Date qnaDate;
 	private Date qnaEditDate;
 	private Date qnaDeleteDate;

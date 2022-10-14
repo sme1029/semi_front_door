@@ -43,7 +43,7 @@ public class Reply {
 	private Long replyNo;
 	
 	@Column(name = "REPLY_CONTENTS")
-	private String replyContents;
+	private String replyContent;
 	
 	@Column(name = "REPLY_STATUS")
 	private String replyStatus;
@@ -58,7 +58,7 @@ public class Reply {
 	private Date replyDeleteDate;
 	
 	@ManyToOne
-	@JoinColumn(name = "MEM_ID")
+	@JoinColumn(name = "WRITER")
 	private Member writer;
 	
 	@Column(name = "REV_CODE")

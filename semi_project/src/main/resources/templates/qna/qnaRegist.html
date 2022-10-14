@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/index.css}">	  
-    <link rel="stylesheet" th:href="@{/css/noticeRegist.css}">
+    <link rel="stylesheet" th:href="@{/css/qnaRegist.css}">
 
     <!-- 제이쿼리 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -33,23 +33,26 @@
 	<div th:replace="main/nav.html"></div>
 
     <!-- 개발진행 -->
-       <div id="notice-main">
-            <div id="notice-section">
-                <h1 align="center">공지 사항 작성</h1>
-                <form id="noticeRegistForm" th:action="@{/notice/noticeRegist}" method="post">
+       <div id="qna-main">
+            <div id="qna-section">
+                <h1 align="center">문의 사항 작성</h1>
+                <form id="qnaRegistForm" th:action="@{/qna/qnaRegist}" method="post">
                     <div class="title-box">
-                        <input class="notice-title" type="text" name="notTitle">
+                        <input class="qna-title" type="text" name="qnaTitle">
                     </div>
                     <div class="content-box">
-                        <textarea class="notice-content" name="notContent"
-                            placeholder="내용을 입력해주세요.">
-                        </textarea>
+                        <textarea class="qna-content" name="qnaContent" placeholder="내용을 입력해주세요."></textarea>
                     </div>
-                    <div class="notice-btn-box-bottom">
+                    
+                    <div class="qna-btn-box-bottom">
                         <button type="submit" id="btnForChange">등록</button>
-                    	<button type="reset" onclick="location.href='/notice/noticeList'">취소</button>
+
+                    	<!-- <button type="reset" onclick="location.href='qna/qnaList'">취소</button> -->
+
+                    	<button type="button" onclick="location.href='/qna/qnaList'">취소</button>
+
                     </div>
-           </div>
+                    
                 </form>
             </div>
         </div>
