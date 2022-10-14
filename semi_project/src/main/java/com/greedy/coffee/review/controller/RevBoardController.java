@@ -197,7 +197,12 @@ public class RevBoardController {
 		
 		log.info("[RevBoardCotroller] =======================================");
 		log.info("[updateRevBoard] pdateRev request : {}", updateRev);
-		
+//		
+//		String fileName= "";
+//		
+//		if(!updateRev.getFileList().isEmpty()) {
+//			
+//		}
 		
 		revBoardService.updateRevBoard(updateRev);
 		rttr.addFlashAttribute("Message", messageSourceAccessor.getMessage("rev.update"));

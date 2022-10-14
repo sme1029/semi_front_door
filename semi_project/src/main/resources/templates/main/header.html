@@ -35,9 +35,11 @@
             
 				<th:block sec:authorize="isAuthenticated()">
 					<li><span sec:authentication="principal.username"></span>님 환영합니다.</li>
-					<li><a onclick="location.href='mypage/userpage'">마이페이지</a></li>
+					<li><a href="/admin/page">관리자페이지</a></li>
 					<li><a onclick="location.href='member/logout'" id="logout" >로그아웃</a></li>
 				<th:block sec:authorize="isAuthenticated()">
+				
+				
                 
                 </div>
                 

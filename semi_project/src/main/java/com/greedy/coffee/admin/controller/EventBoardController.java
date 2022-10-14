@@ -25,10 +25,17 @@ public class EventBoardController {
 		this.eventService = eventService;
 	}
 	
-	@GetMapping("list")
-	public String eventBoard(@RequestParam(defaultValue="1") int page, Model model, Long eveCode) {
+	@GetMapping("/page")
+	public String admin() {
 		
-		Page<EventDTO> eventList = eventService.selectBoardList(page, eveCode);
+		return "admin/adminPage";
+	}
+	
+	
+	@GetMapping("list")
+	public String eventBoard(@RequestParam(defaultValue="1") int page, Model model) {
+		
+		Page<EventDTO> eventList = eventService.selectBoardList(page);
 		PagingButtonInfo paging = Pagenation.getPagingButtonInfo(eventList);
 		log.info("[eventBoard] eventList : {}", eventList);
 		model.addAttribute("eventList", eventList);
