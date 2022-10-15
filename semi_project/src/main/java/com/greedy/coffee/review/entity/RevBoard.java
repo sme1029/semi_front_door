@@ -17,6 +17,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
+
+import com.greedy.coffee.file.dto.FileDTO;
 import com.greedy.coffee.file.entity.File;
 import com.greedy.coffee.member.entity.Member;
 
@@ -70,6 +72,7 @@ public class RevBoard {
 	@OneToMany(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "REV_CODE")
 	private List<File> fileList;
+
 	
 	
 	

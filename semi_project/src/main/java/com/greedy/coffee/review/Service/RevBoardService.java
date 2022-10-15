@@ -1,6 +1,11 @@
 package com.greedy.coffee.review.Service;
 
 
+
+
+import java.util.List;
+import java.util.Map;
+
 import javax.transaction.Transactional;
 
 import org.modelmapper.ModelMapper;
@@ -10,10 +15,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
-import com.greedy.coffee.file.entity.File;
-import com.greedy.coffee.member.entity.Member;
 import com.greedy.coffee.member.repository.MemberRepository;
 import com.greedy.coffee.review.dto.RevBoardDTO;
 import com.greedy.coffee.review.entity.RevBoard;
@@ -80,11 +82,16 @@ public class RevBoardService {
 
 	
 	public void updateRevBoard(RevBoardDTO updateRev) {
-
+		
 		RevBoard savedRev = revBoardRepository.findByRevCode(updateRev.getRevCode());
 		savedRev.setRevTitle(updateRev.getRevTitle());
 		savedRev.setRevContents(updateRev.getRevContents());
 		savedRev.setRevEditDate(updateRev.getRevDate());
+		//savedRev.setFileList(updateRev.getFileList());
+		
+		
+		
+		
 	}
 
 	public void deleteRev(Long revCode) {

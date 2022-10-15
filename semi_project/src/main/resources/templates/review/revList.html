@@ -58,7 +58,7 @@
                     </div>
                 </th:block>
             </div>
-            <!-- <th:block sec:authorize="isAuthenticated()"> -->
+            <th:block sec:authorize="hasRole('ROLE_MEMBER')"> 
             <button class="rev_btn1" id="writeBoard" style="float: right;">글쓰기</button>
             </th:block>
         
@@ -93,7 +93,7 @@
 
 
             <!-- 리뷰 검색  -->
-            <th:block th:if="${ serchValue != null }">
+            <th:block th:if="${ revSearchValue != null }">
 
                 <button th:onclick="'location.href=\'/review/list?page=' 
                  + @{${paging.startPage}} + '&revSearchValue=' + @{${revSearchValuee}} + '\''">&lt;&lt;</button>

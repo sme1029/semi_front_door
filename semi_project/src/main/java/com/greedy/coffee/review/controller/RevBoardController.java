@@ -6,7 +6,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+
+import javax.mail.Multipart;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.MessageSourceAccessor;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.greedy.coffee.common.Pagenation;
@@ -193,16 +197,23 @@ public class RevBoardController {
 	
 	@PostMapping("/update")
 	public String updateRevBoard(@RequestParam MultipartFile revFile,
-			@ModelAttribute RevBoardDTO updateRev, RedirectAttributes rttr) {
+			@ModelAttribute RevBoardDTO updateRev, @ModelAttribute FileDTO revfile, RedirectAttributes rttr) {
 		
 		log.info("[RevBoardCotroller] =======================================");
 		log.info("[updateRevBoard] pdateRev request : {}", updateRev);
-//		
-//		String fileName= "";
-//		
-//		if(!updateRev.getFileList().isEmpty()) {
-//			
-//		}
+/*		String rootLocation = IMAGE_DIR;
+		String fileUploadDirectory = rootLocation + "/upload/review/original";
+		String thumbnailDirectory = rootLocation + "/upload/review/thumbnail";
+		List<FileDTO> fileList = new ArrayList<>();
+		FileDTO fileInfo = new FileDTO();
+		fileInfo.setFileOrgName(revfile.getFileOrgName());
+		fileInfo.setFileSaveName(revfile.getFileSaveName());
+		fileInfo.setFilePath(fileUploadDirectory + "/" + revfile.getFileSaveName());
+		fileInfo.setFileThumName(revfile.getFileThumName());
+		fileInfo.setFileThumPath(thumbnailDirectory+ "/thumbnail_" + revfile.getFileSaveName());
+		fileList.add(fileInfo);
+		
+		updateRev.setFileList(fileList);*/
 		
 		revBoardService.updateRevBoard(updateRev);
 		rttr.addFlashAttribute("Message", messageSourceAccessor.getMessage("rev.update"));

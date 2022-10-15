@@ -13,6 +13,9 @@ window.onload = function() {
             location.href = "/review/delete";
         }
     }
+    
+     	
+
 //사진 업로드 
 (function(){
 			

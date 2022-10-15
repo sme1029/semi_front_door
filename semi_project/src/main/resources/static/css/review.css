@@ -23,10 +23,8 @@ table {
 }
 table tr {
     text-align: center;
-    border-top: 1.5px solid rgb(107, 71, 53);
-    border-bottom: 1.5px solid  rgb(107, 71, 53);
+  
 }
-
 
 
 .review-tr {
@@ -141,13 +139,7 @@ h1 {
 .rev-page h1 {
     margin-bottom: 80px;
 }
-textarea {
-	border: none;
-	resize: none;
-}
-input{
-	border: none;
-}
+
 /* ----------------------------------------------------------------- */
 /* revCreate.html 부분 */
 .rev-create {

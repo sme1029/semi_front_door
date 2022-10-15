@@ -46,6 +46,5 @@ public class EventService {
 		return eventList.map(event -> modelMapper.map(event, EventDTO.class));
 	}
 
-	
 
 }
