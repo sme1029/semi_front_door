@@ -7,8 +7,8 @@ window.onload = function() {
     }
 
  	
-    if(document.getElementById("deleteRev")) {
-        const $deleteRev = document.getElementById("deleteRev");
+    if(document.getElementById("revButton2")) {
+        const $deleteRev = document.getElementById("revButton2");
         $deleteRev.onclick = function() {
             location.href = "/review/delete";
         }
